@@ -1,0 +1,4 @@
+Estructura,Acceso,Busqueda,Insersion,Eliminacion
+Lista,42600ns,81100ns,300ns,62000ns
+Pila,248300ns,225900ns,200ns,100ns
+Cola,266200ns,266200ns,300ns,200ns
