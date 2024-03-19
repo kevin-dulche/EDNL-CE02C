@@ -51,27 +51,44 @@ public class UnbalancedBinarySearchTree {
     }
 
     // Implementar la eliminación de un valor en el árbol
-    public void delete(int val) {
-        // Implementación necesaria
-        eliminaRecursivo(val, root);
+    public void eliminar(int valor) {
+        eliminarNodo(root, valor);
     }
 
-    public boolean esHoja(TreeNode nodo){
-        return nodo.getLeft() == null && nodo.getRight() == null;
+    public TreeNode eliminarNodo(TreeNode raiz, int valor) {
+        if (raiz == null)
+            return raiz;
+
+        // Recursivamente buscar el nodo a eliminar
+        if (valor < raiz.getVal())
+            raiz.setLeft(eliminarNodo(raiz.getLeft(), valor));
+        else if (valor > raiz.getVal())
+            raiz.setRight(eliminarNodo(raiz.getRight(), valor));
+        else {
+            // Nodo con un solo hijo o sin hijos
+            if (raiz.getLeft() == null)
+                return raiz.getRight();
+            else if (raiz.getRight() == null)
+                return raiz.getLeft();
+
+            // Nodo con dos hijos: obtener el sucesor inmediato (el más pequeño en el subárbol derecho)
+            raiz.setVal(encontrarMinimoValor(raiz.getRight()));
+
+            // Eliminar el sucesor inmediato
+            raiz.setRight(eliminarNodo(raiz.getRight(), raiz.getVal()));
+        }
+
+        return raiz;
     }
 
-    public boolean tieneUnHijo(TreeNode nodo){
-        return (nodo.getLeft() != null && nodo.getRight() == null) || (nodo.getLeft() == null && nodo.getRight() != null);
+    int encontrarMinimoValor(TreeNode raiz) {
+        int min = raiz.getVal();
+        while (raiz.getLeft() != null) {
+            min = raiz.getLeft().getVal();
+            raiz = raiz.getLeft();
+        }
+        return min;
     }
-
-    public boolean tieneDosHijos(TreeNode nodo){
-        return nodo.getLeft() != null && nodo.getRight() != null;
-    }
-
-    public void eliminaRecursivo(int val, TreeNode nodo_actual){
-        //Implementar la eliminación de un valor en el árbol
-    }
-
 
     // Implementar la búsqueda de un valor en el árbol
     public boolean search(int val) {
