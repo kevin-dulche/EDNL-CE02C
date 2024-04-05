@@ -9,7 +9,7 @@ public class Pruebas {
         HashSet<Integer> numerosGenerados = new HashSet<>();
 
         // Número de elementos aleatorios únicos que deseas agregar al árbol
-        // int cantidadElementos = 2147483647;
+        // int cantidadElementos = Integer.MAX_VALUE;
         int cantidadElementos = 100000;
 
         // Medir el tiempo que tarda en agregar elementos al árbol en segundos
