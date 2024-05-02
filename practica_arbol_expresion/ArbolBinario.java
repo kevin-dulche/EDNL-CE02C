@@ -1,5 +1,0 @@
-/**
- * ArbolBinario
- */
-public class ArbolBinario {
-}
