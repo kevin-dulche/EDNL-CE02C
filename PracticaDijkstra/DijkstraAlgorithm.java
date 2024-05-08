@@ -40,6 +40,6 @@ public class DijkstraAlgorithm {
         }
 
         // Devolvemos el camino más corto y su costo como una cadena
-        return "Camino más corto desde " + u + " hasta " + v + ": " + camino.toString() + " con costo: " + distancia.get(v);
+        return "Camino mas corto desde " + u + " hasta " + v + ": " + camino.toString() + " con costo: " + distancia.get(v);
     }
 }
