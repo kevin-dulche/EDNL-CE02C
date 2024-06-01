@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\kevin\\Downloads\\gs-core-2.0.jar"
+    ]
+}
